@@ -1,5 +1,7 @@
+from turtle import title
 from django.shortcuts import render
-
+from .models import Book, Recipe, Post
+from .forms import BookForm
 
 # Create your views here.
 
@@ -13,4 +15,19 @@ def home(request):
                  'subtitle':subtitle,
                 'content':content})
   
+
+def books(request):
+  if request.method == 'POST':
+    form = BookForm(request.POST)
+    if form.is_valid():
+      data = form.cleaned_data
+      book = Book(title=data['title'], author=data['author'], isbn=data['isbn'])
+      book.save()
+      form = BookForm()
+      return render(request, 'index/books.html', {'form':form})
+  else:
+    form = BookForm()
+    
+  return render(request, 'index/books.html',{'form':form})
+
 
