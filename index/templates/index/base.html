@@ -7,7 +7,7 @@
     <meta name="author" content="" />
     <title>Books & Tea | {% block title %}{% endblock %}</title>
     {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'index/assets/favicon.ico' %}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -31,6 +31,8 @@
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'Home' %}">Inicio</a></li>
             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'Books' %}">Libros</a></li>
+            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'Recipes' %}">Recetas</a></li>
+            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'Blog' %}">Blog</a></li>
 
             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Products</a></li>

@@ -7679,6 +7679,7 @@ textarea.form-control-lg {
 
 .text-center {
   text-align: center !important;
+  font-weight: normal !important;
 }
 
 .text-decoration-none {
@@ -11333,6 +11334,18 @@ p {
 .page-section {
   margin-top: 5rem;
   margin-bottom: 5rem;
+  min-height: 70vh;
+}
+
+.page-section.recipes, .page-section.books, .page-section.posts {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.page-section.recipes .about-heading-content,
+.page-section.books .about-heading-content, 
+.page-section.posts .about-heading-content {
+  margin-top: 0;
 }
 
 .section-heading {
@@ -11430,7 +11443,6 @@ p {
 
 .footer {
   background-color: rgba(47, 23, 15, 0.56);
-  bottom: 1rem;
   width: 100%;
 }
 
