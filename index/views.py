@@ -1,7 +1,7 @@
-from turtle import title
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Book, Recipe, Post
-from .forms import BookForm, RecipeForm, PostForm
+from .forms import BookForm, RecipeForm, PostForm, BookSearchForm
 
 # Create your views here.
 
@@ -64,3 +64,18 @@ def posts(request):
     form = PostForm()
     
   return render(request, 'index/posts.html',{'form':form})
+
+
+# Vista de BÚSQUEDA DE LIBRO
+
+def book_search(request):
+  books = []  #aquí se guardarán los resultados de la búsqueda
+  data = request.GET.get('find_book', None)
+  if data is not None:
+    books = Book.objects.filter(title__icontains=data)
+  
+  searcher = BookSearchForm()
+   
+  return render(request, 'index/book_search.html',
+                {'searcher':searcher, 'books':books, 'title':data})
+  

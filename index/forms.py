@@ -1,4 +1,3 @@
-from cProfile import label
 from django import forms
 
 TYPES_OF_RECIPE = (('dulce', 'recetas dulces'),
@@ -18,13 +17,6 @@ class RecipeForm(forms.Form):
                                        choices=TYPES_OF_RECIPE)
   preparation = forms.CharField(label='Preparación', widget=forms.Textarea)
   
-class PostForm(forms.Form):
-  title = forms.CharField(label='Título')
-  subtitle = forms.CharField(label='Subtítulo')
-  author = forms.CharField(label='Autor')
-  content = forms.CharField(label='Contenido', widget=forms.Textarea)
-  published = forms.DateTimeField(label='Fecha publicación')
-  
   
 class PostForm(forms.Form):
   title = forms.CharField(label='Título')
@@ -34,3 +26,8 @@ class PostForm(forms.Form):
   published = forms.DateTimeField(label='Fecha publicación',
                                   widget=forms.DateInput,
                                   help_text='AAAA-MM-DD')
+  
+  
+class BookSearchForm(forms.Form):
+  find_book = forms.CharField(label='Título', max_length=100)
+  

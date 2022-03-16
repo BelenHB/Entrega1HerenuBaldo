@@ -11337,14 +11337,26 @@ p {
   min-height: 70vh;
 }
 
-.page-section.recipes, .page-section.books, .page-section.posts {
+.page-section.searcher {
+  min-height: 40vh;
+}
+
+.page-section.results {
+  min-height: 55vh;
+}
+
+.page-section.recipes,
+.page-section.books, 
+.page-section.posts,
+.page.section.searcher {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .page-section.recipes .about-heading-content,
 .page-section.books .about-heading-content, 
-.page-section.posts .about-heading-content {
+.page-section.posts .about-heading-content,
+.page-serction.searcher .about-heading-content {
   margin-top: 0;
 }
 
@@ -11499,11 +11511,11 @@ p {
   border-bottom: 1px solid rgba(230, 167, 86, 0.5);
   padding-bottom: 0.25rem;
   margin-bottom: 1rem;
-  font-style: italic;
-}
-.list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #e6a756;
+}
+.list-hours .list-hours-item {
+  font-weight: bold;
+  color: #000;
 }
 @media (min-width: 992px) {
   .list-hours {
