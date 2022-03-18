@@ -6,7 +6,7 @@ from django.utils.timezone import now
 class Book(models.Model):
   title = models.CharField(max_length=100, verbose_name='Título')
   author = models.CharField(max_length=100, verbose_name='Autor')
-  isbn = models.IntegerField()
+  isbn = models.CharField(max_length=13, verbose_name='ISBN')
   
   def __str__(self):
     return self.title
@@ -17,7 +17,8 @@ class Recipe(models.Model):
   TYPES_OF_RECIPE = (('dulce', 'recetas dulces'),
                      ('salado', 'snacks salados'),
                      ('postres', 'postrecitos ricos'))
-  category = models.CharField(max_length= 100, verbose_name='Categoría', choices=TYPES_OF_RECIPE)
+  category = models.CharField(max_length= 100, verbose_name='Categoría',
+                              choices=TYPES_OF_RECIPE)
   preparation = models.TextField(verbose_name='Preparación', default='')
   
   def __str__(self):

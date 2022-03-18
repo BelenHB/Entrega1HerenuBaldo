@@ -3,16 +3,16 @@
 {% block title %}Búsqueda de libros{% endblock title %}
 {% block content %}
 
+<!-- Formulario para buscar por título -->
 <section class="page-section searcher about-heading">
   <dic class="container">
     <div class="about-heading-content">
       <div class="row me-0">
         <div class="col-xl-9 col-lg-10 mx-auto">
           <div class="bg-faded p-5 rounded" style="background-color:#f6e1c58c;">
-          
           <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Busqueda de</span>
-            <span class="section-heading-lower">Libros</span>
+            <span class="section-heading-upper">Buscar</span>
+            <span class="section-heading-lower">Libros por título</span>
           </h2>
           <p class="mb-0">
             <form action="{% url 'Book_search' %}" method="GET">
@@ -28,19 +28,43 @@
   </div>
 </section>
 
+<!-- Formulario para buscar por autor -->
+<section class="page-section searcher about-heading">
+  <dic class="container">
+    <div class="about-heading-content">
+      <div class="row me-0">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded p-5 rounded" style="background-color:#f6e1c58c;">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Buscar</span>
+            <span class="section-heading-lower">Libros por autor</span>
+          </h2>
+          <p class="mb-0">
+            <form action="{% url 'Book_author_search' %}" method="GET">
+              <table>
+                {{searcher_author.as_table}}
+              </table>
+              <input type="submit" value="BUSCAR">
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visualización de resultados de búsqueda -->
 <section class="page-section results cta">
   <div class="container">
     <div class="row me-0">
       <div class="col-xl-9 mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
           <h2 class="section-heading mb-5">
-            <span class="section-heading-upper">Resultados de la búsqueda con título:</span>
-            <span class="section-heading-lower"><em>{{title}}</em></span>
+            <span class="section-heading-upper">Resultados de la búsqueda:</span>
           </h2>
           <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
             {% if books %}
             {% for book in books %}
-            
             <li class="list-unstyled-item list-hours-item d-flex">
               {{book.title}}   <span class="ms-auto"><em>  |  Autor: {{book.author}}</em></span>
             </li>
@@ -50,10 +74,7 @@
               No se encontraron libros con ese título.
             </li>
             {% endif %}
-            
-          
           </ul>
-
         </div>
       </div>
     </div>
