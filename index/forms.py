@@ -1,10 +1,5 @@
 from django import forms
 
-# Definición de opciones para 'category' del formulario de Recetas (RecipeForm)
-TYPES_OF_RECIPE = (('dulce', 'recetas dulces'),
-                     ('salado', 'snacks salados'),
-                     ('postres', 'postrecitos ricos'))
-
 
 # Formulario para carga de libros 
 class BookForm(forms.Form):
@@ -19,10 +14,6 @@ class BookForm(forms.Form):
 # Formulario para carga de recetas
 class RecipeForm(forms.Form):
   name = forms.CharField(label='Nombre')
-  category = forms.MultipleChoiceField(label='Categoría',
-                                       required=False,
-                                       widget=forms.CheckboxSelectMultiple,
-                                       choices=TYPES_OF_RECIPE)
   preparation = forms.CharField(label='Preparación', widget=forms.Textarea)
   
   

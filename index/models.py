@@ -14,11 +14,6 @@ class Book(models.Model):
   
 class Recipe(models.Model):
   name = models.CharField(max_length=100, verbose_name='Nombre')
-  TYPES_OF_RECIPE = (('dulce', 'recetas dulces'),
-                     ('salado', 'snacks salados'),
-                     ('postres', 'postrecitos ricos'))
-  category = models.CharField(max_length= 100, verbose_name='Categoría',
-                              choices=TYPES_OF_RECIPE)
   preparation = models.TextField(verbose_name='Preparación', default='')
   
   def __str__(self):

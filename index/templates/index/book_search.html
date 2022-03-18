@@ -1,6 +1,6 @@
 {% extends 'index/base.html' %}
 {% load static %}
-{% block title %}Búsqueda de libros{% endblock title %}
+{% block title %}Buscar libros{% endblock title %}
 {% block content %}
 
 <!-- Formulario para buscar por título -->
@@ -66,12 +66,13 @@
             {% if books %}
             {% for book in books %}
             <li class="list-unstyled-item list-hours-item d-flex">
-              {{book.title}}   <span class="ms-auto"><em>  |  Autor: {{book.author}}</em></span>
+              {{book.title}}   
+              <span class="ms-auto" style="font-weight: normal"><em>|  Autor: {{book.author}}</em></span>
             </li>
             {% endfor %}
             {% else %}
             <li class="list-unstyled-item list-hours-item d-flex">
-              No se encontraron libros con ese título.
+              No se encontraron libros para esa búsqueda.
             </li>
             {% endif %}
           </ul>

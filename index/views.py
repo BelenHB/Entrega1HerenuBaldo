@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Book, Recipe, Post
 from .forms import BookForm, RecipeForm, PostForm, BookSearchForm, BookAuthorSearchForm
@@ -43,8 +42,7 @@ def recipes(request):
     form = RecipeForm(request.POST)
     if form.is_valid():
       data = form.cleaned_data
-      recipe = Recipe(name=data['name'], category=data['category'], 
-                      preparation=data['preparation'])
+      recipe = Recipe(name=data['name'], preparation=data['preparation'])
       recipe.save()
       form = RecipeForm()
       return render(request, 'index/recipes.html', {'form':form})
@@ -62,10 +60,10 @@ def posts(request):
     form = PostForm(request.POST)
     if form.is_valid():
       data = form.cleaned_data
-      recipe = Post(title=data['title'], subtitle=data['subtitle'], 
+      post = Post(title=data['title'], subtitle=data['subtitle'], 
                     author=data['author'], content=data['content'],
                     published=data['published'])
-      recipe.save()
+      post.save()
       form = PostForm()
       return render(request, 'index/posts.html', {'form':form})
   else:
